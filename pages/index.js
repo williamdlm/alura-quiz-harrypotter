@@ -1,10 +1,10 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 import db from "../db.json";
 import Widget from "../src/components/Widget";
 import QuizBackground from "../src/components/QuizBackground";
 import Footer from "../src/components/Footer";
 import GitHubCorner from "../src/components/GitHubCorner";
-
+import Head from "../src/components/Head";
 
 // const BackgroundImage = styled.div `
 // background-image: url(${db.bg});
@@ -24,34 +24,31 @@ export const QuizContainer = styled.div`
   }
 `;
 
-
-
 export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
+      <Head />
       <QuizContainer>
-        
         <Widget>
-            <Widget.Header><h1>Harry Potter</h1></Widget.Header>
-         <Widget.Content>
-  
+          <Widget.Header>
+            <h1>Harry Potter</h1>
+          </Widget.Header>
+          <Widget.Content>
             <p>Officia elit anim qui exercitation do in.</p>
-         </Widget.Content>
+          </Widget.Content>
         </Widget>
 
         <Widget>
-        <Widget.Content>
-          <h1>Harry Potter</h1>
-  
-  <p>Officia elit anim qui exercitation do in.</p>
-        </Widget.Content>
+          <Widget.Content>
+            <h1>Harry Potter</h1>
+
+            <p>Officia elit anim qui exercitation do in.</p>
+          </Widget.Content>
         </Widget>
 
-      <Footer />
+        <Footer />
       </QuizContainer>
-      <GitHubCorner projectUrl="#" />
+      <GitHubCorner projectUrl="https://github.com/williamdlm/alura-quiz-harrypotter" />
     </QuizBackground>
-
-  )
+  );
 }
-
