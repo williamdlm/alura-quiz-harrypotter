@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Widget = styled.div`
   margin-top: 24px;
@@ -32,8 +32,7 @@ Widget.Header = styled.header`
   }
 `;
 
-
-Widget.Content = styled.div `
+Widget.Content = styled.div`
 padding: 24px 32px 32px 32px;
 & > *::first-child{
   margin-top:0;
@@ -45,6 +44,6 @@ ul{
   list-style:none;
   padding:0;
 }
-`
+`;
 
 export default Widget;
