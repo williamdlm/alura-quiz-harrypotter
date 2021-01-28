@@ -25,11 +25,11 @@ export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head />
-      <QuizLogo backgroundImage="https://res.cloudinary.com/dhmkfekt2/image/upload/v1611711939/logo_gkgnd6.svg" />
       <QuizContainer>
+        <QuizLogo backgroundImage="https://res.cloudinary.com/dhmkfekt2/image/upload/v1611711939/logo_gkgnd6.svg" />
         <Widget>
           <Widget.Header>
-            <h1>Harry Potter</h1>
+            <h1>Quiz - Harry Potter</h1>
           </Widget.Header>
           <Widget.Content>
             <form onSubmit={function (event) {
