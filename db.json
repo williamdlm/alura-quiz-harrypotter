@@ -101,7 +101,8 @@
     }
   ],
   "external": [
-    ""
+    "https://aluraquiz-devsoutinho.omariosouto.vercel.app/",
+    "https://aluraquiz-css.omariosouto.vercel.app/"
   ],
   "theme": {
     "colors": {

@@ -1,12 +1,14 @@
+/* eslint-disable react/react-in-jsx-scope */
 import styled from 'styled-components';
 
 // src/components/Footer/index.js
 const FooterWrapper = styled.footer`
-  background-color: #00000070;
+  background-color: #000000AF;
   padding: 20px;
   display: flex;
   align-items: center;
   border-radius: 4px; 
+  /* opacity: 1; */
   img {
     width: 58px;
     margin-right: 23px;
@@ -33,7 +35,13 @@ export default function Footer(props) {
         <img src="https://www.alura.com.br/assets/img/alura-logo-white.1570550707.svg" alt="Logo Alura" />
       </a>
       <p>
-        Orgulhosamente criado durante
+        Orgulhosamente criado por
+        {' '}
+        <a href="https://www.linkedin.com/in/williamdlm/">
+          <span>William Mota</span>
+        </a>
+        {' '}
+        durante
         {' '}
         a
         {' '}

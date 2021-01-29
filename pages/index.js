@@ -29,7 +29,7 @@ export default function Home() {
         <QuizLogo backgroundImage="https://res.cloudinary.com/dhmkfekt2/image/upload/v1611711939/logo_gkgnd6.svg" />
         <Widget>
           <Widget.Header>
-            <h1>Quiz - Harry Potter</h1>
+            <h1>#HarryPotterQuiz</h1>
           </Widget.Header>
           <Widget.Content>
             <form onSubmit={function (event) {
@@ -59,8 +59,22 @@ export default function Home() {
         <Widget>
           <Widget.Content>
             <h1>Quizes da Galera</h1>
-
-            <p>Officia elit anim qui exercitation do in.</p>
+            <ul>
+              {db.external.map((linkExterno) => {
+                const [projectName, gitHubUser] = linkExterno
+                  .replace(/\//g, '')
+                  .replace('https:', '')
+                  .replace('.vercel.app', '')
+                  .split('.');
+                return (
+                  <li key={linkExterno}>
+                    <Widget.Topic href={linkExterno}>
+                      {`${gitHubUser}/${projectName}`}
+                    </Widget.Topic>
+                  </li>
+                );
+              })}
+            </ul>
           </Widget.Content>
         </Widget>
 
