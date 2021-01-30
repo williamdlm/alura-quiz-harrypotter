@@ -8,6 +8,7 @@ import QuizBackground from '../../src/components/QuizBackground';
 import QuizContainer from '../../src/components/QuizContainer';
 import Button from '../../src/components/Button';
 import AlternativesForm from '../../src/components/AlternativesForm';
+import BackLinkArrow from '../../src/components/BackLinkArrow';
 
 function ResultWidget({ results }) {
   return (
@@ -76,7 +77,7 @@ function QuestionWidget({
   return (
     <Widget>
       <Widget.Header>
-        {/* <BackLinkArrow href="/" /> */}
+        <BackLinkArrow href="/" />
         <h3>
           {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
         </h3>
@@ -107,7 +108,7 @@ function QuestionWidget({
               addResult(isCorrect);
               onSubmit();
               setIsQuestionSubmited(false);
-              // setSelectedAlternative(undefined);
+              setSelectedAlternative(undefined);
             }, 2 * 1000);
           }}
         >

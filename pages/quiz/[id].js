@@ -1,13 +1,16 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
 import QuizScreen from '../../src/screens/Quiz';
 
 export default function QuizDaGaleraPage({ dbExterno }) {
   return (
-    <QuizScreen
-      externalQuestions={dbExterno.questions}
-      bg={dbExterno.bg}
-    />
+    <ThemeProvider theme={dbExterno.theme}>
+      <QuizScreen
+        externalQuestions={dbExterno.questions}
+        externalBg={dbExterno.bg}
+      />
+    </ThemeProvider>
     /* <pre style={{ color: 'black' }}>
           {JSON.stringify(dbExterno.questions, null, 4)}
         </pre> */
@@ -15,7 +18,8 @@ export default function QuizDaGaleraPage({ dbExterno }) {
 }
 
 export async function getServerSideProps(context) {
-  const dbExterno = await fetch('https://alura-quiz-harrypotter.williamdlm.vercel.app/api/db')
+  const [projectName, gitHubUser] = context.query.id.split('___');
+  const dbExterno = await fetch(`https://${projectName}.${gitHubUser}.vercel.app/api/db`)
     .then((respostadoServer) => {
       if (respostadoServer.ok) {
         return respostadoServer.json();
