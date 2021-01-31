@@ -9,42 +9,62 @@ import QuizContainer from '../../src/components/QuizContainer';
 import Button from '../../src/components/Button';
 import AlternativesForm from '../../src/components/AlternativesForm';
 import BackLinkArrow from '../../src/components/BackLinkArrow';
+import Link from '../../src/components/Link';
 
 function ResultWidget({ results }) {
   return (
-    <Widget>
-      <Widget.Header>
-        Tela de Resultado:
-      </Widget.Header>
+    <QuizContainer>
+      <Widget>
+        <Widget.Header>
+          Tela de Resultado:
+        </Widget.Header>
 
-      <Widget.Content>
-        <p>
-          Você acertou
-          {' '}
-          {/* {results.reduce((somatoriaAtual, resultAtual) => {
+        <Widget.Content>
+          <p>
+            Você acertou
+            {' '}
+            {/* {results.reduce((somatoriaAtual, resultAtual) => {
             const isAcerto = resultAtual === true;
             if (isAcerto) {
               return somatoriaAtual + 1;
             }
             return somatoriaAtual;
           }, 0)} */}
-          {results.filter((x) => x).length}
-          {' '}
-          perguntas
-        </p>
-        <ul>
-          {results.map((result, index) => (
-            <li key={`result__ ${result}`}>
-              #
-              {index + 1}
-              {' '}
-              Resultado:
-              {result === true ? 'Acertou' : 'Errou'}
-            </li>
-          ))}
-        </ul>
-      </Widget.Content>
-    </Widget>
+            {results.filter((x) => x).length}
+            {' '}
+            perguntas
+          </p>
+          <ul>
+            {results.map((result, index) => (
+              <li key={`result__ ${result}`}>
+                #
+                {index + 1}
+                {' '}
+                Resultado:
+                {result === true ? 'Acertou' : 'Errou'}
+              </li>
+            ))}
+          </ul>
+        </Widget.Content>
+      </Widget>
+      <Widget>
+        <li style={{
+          margin: '0 auto',
+          padding: '20px 20px 10px 20px',
+          width: '70%',
+          height: '150%',
+          listStyle: 'none',
+        }}
+        >
+          <Widget.Topic
+            as={Link}
+            href="/"
+          >
+            Voltar para o inicio
+          </Widget.Topic>
+        </li>
+      </Widget>
+    </QuizContainer>
   );
 }
 function LoadingWidget() {
@@ -55,7 +75,7 @@ function LoadingWidget() {
       </Widget.Header>
 
       <Widget.Content>
-        Desafio loading...
+        loading desafio...
       </Widget.Content>
     </Widget>
   );
@@ -128,7 +148,8 @@ function QuestionWidget({
                   style={{ display: 'none' }}
                   id={alternativeId}
                   name={questionId}
-                  onChange={() => setSelectedAlternative(alternativeIndex)}
+                  onClick={() => setSelectedAlternative(alternativeIndex)}
+                  // onChange={() => setSelectedAlternative(alternativeIndex)}
                   type="radio"
                 />
                 { alternative}
